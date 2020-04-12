@@ -1,9 +1,10 @@
 
 # Coursera Google Drive Downloader via Google Colab
-![PyPI](https://img.shields.io/pypi/v/coursera-GDrive?color=brightgreen)
+[![PyPI](https://img.shields.io/pypi/v/coursera-GDrive?color=brightgreen)](https://pypi.org/project/coursera-GDrive)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/kaanaritr/Coursera-GDrive/issues)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/kaanaritr/Coursera-GDrive.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/kaanaritr/Coursera-GDrive/context:python)
 
-This small project is helpful for downloading Coursera courses into your Google Drive via Google Colab. You can use it with given instruction below or given [Jupyter Notebook](extras/EasyDownloader.ipynb) file easily.
+This small project is helpful for downloading Coursera courses into your Google Drive via Google Colab. You can use it with given instruction below or given [Jupyter Notebook](https://github.com/kaanaritr/Coursera-GDrive/blob/master/extras/EasyDownloader.ipynb) file easily.
 This module makes it easier to mount your google drive and download all enrolled courses from Coursera. 
 
 All enrolled courses can be downloaded by the methods given below,(For more detailed explanations, see the section ''Usage''.)
@@ -33,7 +34,7 @@ pip install Coursera-GDrive
 
 ### How to use this package without writing code?
 
-If you don't want to waste your time to read this documentation, then just download [Jupyter Notebook](extras/EasyDownloader.ipynb) file, follow the instructions in the given file and run it on your Google Colab.
+If you don't want to waste your time to read this documentation, then just download [Jupyter Notebook](https://github.com/kaanaritr/Coursera-GDrive/blob/master/extras/EasyDownloader.ipynb) file, follow the instructions in the given file and run it on your Google Colab.
 
 ### If you want to use this package by writing your own code;
 
@@ -169,7 +170,7 @@ Last one step before download, if you want to see some useful courses list, you 
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/kaanaritr/Coursera-GDrive/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
@@ -181,7 +182,7 @@ See also the list of [contributors](https://github.com/kaanaritr/Coursera-GDrive
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/kaanaritr/Coursera-GDrive/blob/master/LICENSE) file for details.
 
 ## Acknowledgments
 
