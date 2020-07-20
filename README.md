@@ -44,12 +44,16 @@ First of all, you have to know the basics of Python to understand the given inst
 
 - #### Initialize the downloader object with default save folder (COURSERA).
 	```
+	from coursera_gdrive import CourseraDownloader
+	
 	downloader = CourseraDownloader() 
 	```
 - #### Initialize the downloader object with save folder <folder-name> in your Google Drive.
   - If downloader can't find given folder, it will automatically creates itself.
 
   ```
+  from coursera_gdrive import CourseraDownloader
+  
   downloader = CourseraDownloader(<folder-name>)
 
   # Example:
@@ -61,6 +65,9 @@ First of all, you have to know the basics of Python to understand the given inst
 Before we go further, we must authenticate ourselves first. For that purpose, we need to CAUTH token which is using for one of the main authentication method by Coursera.
 
 - #### How to find your Coursera CAUTH token by using your browser?
+
+	If you are looking for an easy solution, you can install this [Browser Extension](https://github.com/e-learning-archive/browser-extension) to find your CAUTH token easily.
+
 	1. First login to `coursera.org` in your web browser :  
 	1. For example, in chrome, Go to settings
 	1. Advanced
