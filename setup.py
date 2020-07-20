@@ -32,5 +32,7 @@ setuptools.setup(
     },
     install_requires=[
         'coursera-dl>=0.11.0'
-    ]
+    ],
+    include_package_data=True,
+    package_data={'': ['coursera_gdrive/lib/*.csv']}
 )

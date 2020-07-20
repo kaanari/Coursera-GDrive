@@ -1,4 +1,4 @@
-import os
+import os,pkg_resources
 import io
 import time
 import subprocess
@@ -43,10 +43,18 @@ class CourseraDownloader:
         self._loginFlag = False
         self._totalCourses = 0
         self._totalEnrolled = 0
+        self._subtitleLangs = "all"
         self.cauth = ""
         self.savePath = DEFAULT_GDRIVE_PATH + DEFAULT_SAVE_FOLDER
         self.enrolledCoursesList = {}
         self.allCoursesList = {}
+
+        library_package = __name__
+        library_path = '/'.join(('lib', 'language_codes.csv'))
+
+        with pkg_resources.resource_stream(library_package, library_path) as langList:
+            self._langList = langList.read().decode("utf8").splitlines()[1:]
+            self._langList = {lang.split(",")[0]: lang.split(",")[1][:] for lang in self._langList}
 
     def __str__(self):
         rowLen = 80
@@ -102,6 +110,57 @@ class CourseraDownloader:
 
         else:
             print("There is a problem. Please try again.")
+
+    def setSubtitles(self,*args,commonAlternative = "en"):
+        """
+        Sets the subtitle choice.
+
+        @param  : args: Gets Subtitle Language List <class 'str'>
+        @return : None
+        """
+
+        if len(args) != 0: # Check if there is any argument is given.
+            self._subtitleLangs = ""
+            print("SUBTITLE LANGUAGE(S):")
+            for lang in args:
+
+                if ("|" not in lang) and lang != commonAlternative:
+                    lang+="|"+commonAlternative
+
+
+                if lang.split("|")[0] in self._langList.keys():
+                    print(" - {} is added.".format(self._langList[lang.split("|")[0]]))
+                else:
+                    print(" - Unknown language is added. ({})".format(lang.split("|")[0]))
+
+                self._subtitleLangs+=lang+","
+
+            self._subtitleLangs = self._subtitleLangs[:-1] # Discard the last comma.
+
+            print("Common alternative language is ",end="")
+            if commonAlternative in self._langList.keys():
+                print(self._langList[commonAlternative]+".")
+            else:
+                print("unknown. ({})".format(commonAlternative))
+
+
+    def showLanguages(self):
+        """
+        Gives the list of 2 character language codes of some widely used languages.
+        There may be other codes that is used in Coursera.
+        To learn more, https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+
+        @param  : None
+        @return : None
+        """
+
+        print("========================")
+        print(" List of Language Codes ")
+        print("========================")
+
+        for num,lang in enumerate(self._langList):
+            print(str(num+1)+") "+lang+" | "+self._langList[lang])
+
 
     def login(self, cauth):
         """
@@ -308,7 +367,7 @@ class CourseraDownloader:
                 courseLog = '{}.log'.format(course_name)
 
                 with io.open(courseLog, 'wb') as writer, io.open(courseLog, 'rb', 1) as reader:
-                    process = subprocess.Popen(['coursera-dl', course_name], stderr=writer)
+                    process = subprocess.Popen(['coursera-dl', course_name,"-sl",self._subtitleLangs], stderr=writer)
 
                     while process.poll() is None:
                         sys.stdout.write(reader.read().decode('utf-8'))
