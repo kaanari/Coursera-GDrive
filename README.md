@@ -101,6 +101,65 @@ Last one step before download, if you want to see some useful courses list, you 
 
 ### Downloading the Courses
 
+- ### How to set subtitle languages before you start the download?
+	There is a new method to do that "setSubtitles". Default subtitle languages is "all". If you don't use this method, downloader will download all the available subtitle languages.
+
+	- #### Set 1 subtitle language.
+
+	```
+	downloader.setSubtitles("<language-tag>") 
+
+	# Example:
+	downloader.setSubtitles("fr") 
+
+	# If subtitles is available in French, downloader will download it.
+	# If the entered language is not available, then it will try to download alternative subtitle language (Default alternative language is English).
+	```
+	
+	- #### How to know the language tag of my language?
+		There is a method to help you. "showLanguages"
+	```
+	downloader.showLanguages()
+
+	# Gives the list of 2 character language codes of some widely used languages.
+	# There may be other codes that is used in Coursera.
+	# To learn more, https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+	```
+
+	- #### Set multiple subtitle languages.
+
+	```
+	downloader.setSubtitles("<language-tag1>","<language-tag2">,...)
+
+	# Example:
+	downloader.setSubtitles("fr","de","tr") 
+
+	# If subtitles is available in French, German and Turkish, downloader will download them all.
+	# If any or all entered language is not available, then it will try to download alternative subtitle language (Default alternative language is English).
+	```
+
+	- #### Set alternative language and change default common alternative language.
+
+
+	```
+	downloader.setSubtitles("<language-tag>|<alt-lang-tag>") 
+
+	# Example:
+	downloader.setSubtitles("fr|de")
+	downloader.setSubtitles("fr|de","tr|it","az") # Multiple Subtitles
+	
+	# If subtitles is available in French, downloader will download it. Else it will try to download subtitles in German. Furthermore, if the alternative language is not also available, it will try to download English subtitles.
+	```
+	- #### If you don't want to state alternative languages for each subtitle one by one, you can use the commonAlternative keyword argument (Default : English). 
+	```
+	downloader.set(downloader.setSubtitles("<language-tag>", commonAlternative = "<language-tag>") 
+	downloader.setSubtitles("<language-tag1>","<language-tag2">,..., commonAlternative = "<language-tag>")
+	
+	# Example:
+	downloader.setSubtitles("fr", commonAlternative = "de") 
+	downloader.setSubtitles("fr","de","tr|en" , commonAlternative = "it")
+	```
+
 - ### How to download all of my enrolled course?
 	It's very straight forward. Just call the download method.
 	```
