@@ -240,8 +240,8 @@ Please read [CONTRIBUTING.md](https://github.com/kaanaritr/Coursera-GDrive/blob/
 
 ## Authors
 
-* 👤**Kaan ARI**  - [kaanaritr](https://github.com/kaanaritr)
- * 👤**Ayşe İDMAN**  - [viorq](https://github.com/viorq)
+* 👤**Kaan ARI**  - [kaanari](https://github.com/kaanari)
+ * 👤**Ayşe İDMAN**  - [ayseidman](https://github.com/ayseidman)
 
 
 See also the list of [contributors](https://github.com/kaanaritr/Coursera-GDrive/graphs/contributors) who are participated in this project.
